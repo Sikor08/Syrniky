@@ -1,0 +1,200 @@
+.header{
+    background-color: $paleBlackFon;
+    position: fixed;
+    width: 100%;
+    z-index: 20;
+}
+.headerWrap{
+    position: relative;
+}
+.headerNav{
+    padding: 25px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &__img{
+        background: inherit;
+    }
+    &__left{
+        display: flex;
+        align-items: baseline;
+        gap: 25px;
+    }
+    &__center{
+        background: inherit;
+    }
+    &__center img{
+        width: 40px;
+        height: 40px;
+        background: inherit;
+    }
+    &__right{
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 25px;
+    }
+}
+.headerIcon{
+    cursor: pointer;
+}
+// burgerMenu
+.burger{
+    z-index: 20;
+    cursor: pointer;
+    &__active{
+        position: fixed;
+        right: 0;
+        @media (min-width: $desktopWidth) {
+
+        }
+        :nth-child(1){
+            display: none;
+        }
+        :nth-child(2){
+            transform: translate(-50%, 0%) rotate(45deg); 
+            position: absolute;
+            background-color: $fonColor;
+        }
+        :nth-child(3){
+            transform: translate(-50%, 0%) rotate(-45deg);  
+            background-color: $fonColor;
+        }
+    }
+}
+.bar{
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px 0;
+    background-color: white;
+    transition: transform 0.8s; 
+
+}
+.burgerList{
+    height: 100vh;
+    width: 90%;
+    padding: 70px 20px;
+    margin: 0;
+    list-style-type: none;
+    background-color: #FFFFFF;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    transition: .4s ease-out;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    @media (min-width: $tabletWidth) {
+        width: 30%;
+    }
+    @media (min-width: $desktopWidth) {
+        width: 10%;
+    }
+    &__open{
+        right: 0;
+        z-index: 10;
+
+    }
+    &__link{
+
+    }
+}
+//cart
+
+.cart{
+    padding: 15px;
+    width: 100%;
+    border: 1px solid #000;
+    position: absolute;
+    background-color: #FFFFFF;
+    right: -15px;
+    overflow: scroll;
+    max-height: 300px;
+    cursor: pointer;
+    margin: auto;
+    &__quantity{
+        justify-content: center;
+        position: absolute;
+        color: #FFFFFF;
+        left: 25px;
+        top: 10%;
+        transform: translateY(-50%);
+        background-color: $mainColor;
+        border-radius: 100%;
+        padding: 2px;
+        min-width: 16px;
+        min-height: 16px;
+    }
+}
+.cartList{
+    display: grid;
+    max-width: 1200px;
+    margin: auto;
+}
+.cartGood{
+    padding: 15px;
+    height: 65px;
+    display: grid;
+    grid-template-columns: 50px 1fr 1fr 30px;
+    align-items: start;
+    border-bottom: 0.5px solid $paleBlackFon;
+    @media (min-width:$tabletWidth) {
+       height: 70px;
+        }
+    &__img{
+        width: 40px;
+        & img{
+            width: 100%;
+        }
+    }
+    &__text{
+        @include smallText;
+        margin: 0;
+        @media (min-width:$tabletWidth) {
+        min-height: 50px;
+        }
+    }
+    &__price{
+        @include smallText;
+    }
+}
+.totalPrice{
+    padding: 20px;
+    font-family: Comic Sans MS, Comic Sans, cursive;
+
+
+}
+// s
+.cartGoodImg img{
+    width: 30px;
+    height: 30px;
+}
+.cartGoodStepper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.cartStepperBtn{
+    border-radius: 100%;
+    background-color: $mainColor;
+    border: none;
+    width: 25px;
+    height: 25px;
+    margin: 0 10px;
+}
+.delBtn{
+    width: 20px;
+    height: 20px;
+    display: block;
+    margin: auto;
+    border: none;
+    background-color: #FFFFFF;
+    & img{
+        width: 20px;
+        height: 20px;
+        color: $mainColor;
+    }
+}
+

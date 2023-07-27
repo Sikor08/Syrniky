@@ -1,0 +1,74 @@
+html{
+    position: relative;
+    height: 100%;
+}
+.wrapper{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+.displayNone{
+    display: none;
+}
+$mainColor: #f7d621;
+$fonColor: #F1E4E6;
+$paleBlackFon: #222222;
+
+@mixin h2 {
+    font-family: Comic Sans MS, Comic Sans, cursive;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 24px;
+    letter-spacing: 0em;
+}
+@mixin title {
+    font-family: Comic Sans MS, Comic Sans, cursive;
+    font-size: 20px;
+}
+@mixin smallText {
+    font-family: Comic Sans MS, Comic Sans, cursive;
+    font-size: 15px;
+    margin: 15px 0;
+}
+p{
+    margin: 0;
+    padding: 0;
+}
+ul{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+.colored{
+    color: $mainColor;
+}
+
+.btn{
+    display: block;
+    margin: 15px auto;
+    background: $mainColor;
+    border: 1px solid $mainColor;
+    border-radius: 6px;
+    box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-family: Comic Sans MS, Comic Sans, cursive;
+    font-size: 16px;
+    font-weight: 800;
+    line-height: 16px;
+    min-height: 40px;
+    outline: 0;
+    padding: 12px 14px;
+    &:hover, :active{
+      background-color: initial;
+      background-position: 0 0;
+      color: $mainColor;
+    }
+    &:active{
+      opacity: .5;
+    } 
+}  
+
+$tabletWidth: 768px;
+$desktopWidth: 1024px;

@@ -1,0 +1,48 @@
+.buyNow__heading{
+    @include h2;
+}
+.buyNowList{
+    display: grid;
+    grid-template-columns: (repeat(2, 1fr));
+    gap: 5px;
+}
+.buyNowWrap{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.buyNowGood{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    position: relative;
+    max-width: 200px;
+    @media (min-width: $tabletWidth) {
+        max-width: 250px;
+    }
+    @media (min-width: $desktopWidth) {
+        max-width: 350px;
+    }
+    &__heading{
+        @include h2;
+    }
+    &__title{
+        bottom: 20px;
+        min-height: 50px;
+        @include title
+    }
+    &__img{
+        width: 100%;
+    }
+    &__promoImg{
+        width: 100%;
+        position: absolute;
+        top: 0;
+    }
+    &__discount{
+        position: absolute;
+        top: 10px;
+        left: 45%;
+        @include title;
+        color: $mainColor;
+    }
+}
+

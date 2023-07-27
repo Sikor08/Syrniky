@@ -1,5 +1,6 @@
 .catalogWrap{
     text-align: center;
+    padding-bottom: 50px;
 }
 .catalog{
     &__heading{
@@ -13,31 +14,16 @@
     gap: 25px;
 }
 .catalogGood{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     position: relative;
     text-align: left;
     background-color: #F8F8F8;
-    &__img {
-
-    }
-    &__promoImg{
-        // display: none;
-        position: absolute;
-        z-index: 10;
-        left: 0;
-    }
-    img{
+    &__img{
         width: 100%;
     }
-    &__discount{
-        position: absolute;
-        color: #F8F8F8;
-        top: 10px;
-        z-index: 20;
-        left: 40%;
-        @include smallText;
-        margin: 0;
-    }
+
     &__title{
+        min-height: 70px;
         @include title
     }
     &__text{
@@ -54,3 +40,20 @@
     }
     
 }
+.catalogGoodInfo{
+    padding: 5px;
+}
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .catalogGood img {
+    display: block;
+    width: 100%;
+    object-fit: cover;
+  }

@@ -7,23 +7,7 @@ burgerBtn.addEventListener('click', (e) => {
 });
 
 
-// swiper
-var swiper = new Swiper(".mySwiper", {
-    effect: "coverflow",
-    grabCursor: true,
-    centeredSlides: true,
-    slidesPerView: "auto",
-    coverflowEffect: {
-      rotate: 50,
-      stretch: 0,
-      depth: 100,
-      modifier: 1,
-      slideShadows: true,
-    },
-    pagination: {
-      el: ".swiper-pagination",
-    },
-  });
+
 
 
 
@@ -113,7 +97,7 @@ catalogGoodBtn.forEach(el => {
     let self = e.currentTarget;
     let parent = self.closest('.catalogGood');
     let id = parent.id;
-    let img = parent.querySelector('.catalogGood__img img').getAttribute('src');
+    let img = parent.querySelector('.catalogGood__img').getAttribute('src');
     let title = parent.querySelector('.catalogGood__title').textContent;
     let price = parseInt(parent.querySelector('.catalogGood__priceValue').textContent);
 
@@ -242,4 +226,11 @@ cartList.addEventListener('click', (e) => {
 }
 )
 
-//promotion
+//swiper
+var swiper = new Swiper(".mySwiper", {
+  spaceBetween: 30,
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+});

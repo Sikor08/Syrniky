@@ -1,5 +1,6 @@
 .header{
-    background-color: $paleBlackFon;
+    background-color: #f1f1f1;
+    opacity: 0.9;
     position: fixed;
     width: 100%;
     z-index: 20;
@@ -37,6 +38,7 @@
 }
 .headerIcon{
     cursor: pointer;
+    fill: $mainColor;
 }
 // burgerMenu
 .burger{
@@ -67,7 +69,7 @@
     width: 25px;
     height: 3px;
     margin: 5px 0;
-    background-color: white;
+    background-color: $mainColor;
     transition: transform 0.8s; 
 
 }

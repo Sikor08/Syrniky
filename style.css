@@ -98,7 +98,7 @@ ul {
 
 .headerIcon {
   cursor: pointer;
-  fill: #f7d621;
+  fill: rgb(143, 141, 141);
 }
 
 .burger {
@@ -127,7 +127,7 @@ ul {
   width: 25px;
   height: 3px;
   margin: 5px 0;
-  background-color: #f7d621;
+  background-color: rgb(143, 141, 141);
   transition: transform 0.8s;
 }
 
@@ -533,7 +533,7 @@ ul {
 .feedback {
   background-image: url(/img/feedbackImg.png);
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 100%;
 }
 
 .feedbackWrap {

@@ -12,21 +12,18 @@ const cartList = document.querySelector('.cartList');
 const cart = document.querySelector('.cart');
 const cartQuantity = document.querySelector('.cart__quantity');
 const cartIcon = document.querySelector('.headerIcon__cart');
+const totalCost = document.querySelector('.totalPriceValue');
 
-let goods = []
-let totalCostArr = []
 cartIcon.addEventListener('click', () => {
 printQuantity() > 0 ? cart.classList.toggle('displayNone') : cart.classList.add('displayNone');
 
 })
 
-const totalPrice = document.querySelector('.totalPriceValue');
-
 // накидываю id на товары каталога
 // const catalogGood = document.querySelectorAll('.catalogGood');
 // catalogGood.forEach(item => {
 //   item.id = crypto.randomUUID();
-// })sa
+// })
 
 const printQuantity = () => {
   let length = cartList.children.length
@@ -64,6 +61,8 @@ const deleteGoodFromCart = (productParent) => {
     cart.classList.add('displayNone')
   }  
 }
+
+//catalogBtn
 catalogGoodBtn.forEach(el => {
   el.addEventListener('click', (e) => {
     let self = e.currentTarget;
@@ -76,114 +75,101 @@ catalogGoodBtn.forEach(el => {
     cartList.insertAdjacentHTML('afterbegin', generateCartGood(img, title, price, id));
 
     printQuantity();
+    /**
+     * 
+     * @returns price per quantity
+     */
+    const culcTotalPrice = () => {
+      if (priceGoodArr !== []) {
+        return priceGoodArr.reduce((sum, item) => sum + item) ;
+      }
+    }
+    const printTotalPrice = () => {
+      price.textContent = culcTotalCost()
 
-    let goodPrices = document.querySelectorAll('.cartGood__priceValue')
-    let totalCostArr = [];
-    goodPrices.forEach(item => {
-      totalCostArr.push(Number(item.textContent));
-    });
-    console.log(totalCostArr)
-    let totalCostSum = totalCostArr.reduce((sum, item) => sum + item);
-    console.log(totalCostSum);
-    totalPrice.textContent =totalCostSum
-
+    }
+    /**
+     * 
+     * @returns Total cost
+     */
+    const culcTotalCost = () => {
+      let goodPrices = document.querySelectorAll('.cartGood__priceValue')
+            let totalCostArr = [];
+            goodPrices.forEach(item => {
+              totalCostArr.push(Number(item.textContent));
+            });
+            let totalCostSum = totalCostArr.reduce((sum, item) => sum + item);
+            return totalCostSum
+    }
+    printTotalPrice()
     if (printQuantity() > 0) {
       cartQuantity.classList.remove('displayNone');
       cartQuantity.style.display = 'flex';
       cart.classList.add('active')
     }
-    
+
     self.disabled = true;
     
     let count = 1;
     let priceGood = document.querySelector('.cartGood__priceValue')
     let priceGoodValue = +(document.querySelector('.cartGood__priceValue')).textContent;
     let priceGoodArr = [priceGoodValue];
-
+    
+    totalCost.textContent = culcTotalCost()
     if (cart.classList.contains('active')) {
       const stepperValue = document.querySelector('.cartStepperValue')
       const cartMinusBtn = document.querySelector('.cartStepperMinus');
       const cartPlusBtn = document.querySelector('.cartStepperPlus');
-      let cost;
-      let costElem;
 
+//plusBtn
       cartPlusBtn.addEventListener('click', () => {
         cartMinusBtn.disabled = false;
-
         count ++;
         if (count >= 9) {
           cartPlusBtn.disabled = true;
         }
         stepperValue.textContent = count;
-      
+
         priceGoodArr.push(priceGoodValue);
-        let priceGoodsSum = priceGoodArr.reduce((sum, item) => sum + item) ;
-        priceGood.textContent = priceGoodsSum;
-        let goodPrices = document.querySelectorAll('.cartGood__priceValue');
+        priceGood.textContent = culcTotalPrice();
 
-        let totalCostArr = [];
-
-        goodPrices.forEach(item => {
-          totalCostArr.push(Number(item.textContent));
-        });
-        console.log(totalCostArr)
-        let totalCostSum = totalCostArr.reduce((sum, item) => sum + item);
-        console.log(totalCostSum);
-        totalPrice.textContent =totalCostSum
+        totalCost.textContent = culcTotalCost()
         
       })
-      
+//minusBtn
       cartMinusBtn.addEventListener('click', (e) => {
         cartPlusBtn.disabled = false
         count --;
-
         stepperValue.textContent = count;
 
-        let stepperQuantity = e.target.parentNode.querySelector('.cartStepperValue').textContent;
-        let dataPrice = e.target.closest('.cartGood').dataset.price
-
-        cost  = +stepperQuantity * + dataPrice;
-        costElem = e.target.closest('.cartGood').querySelector('.cartGood__priceValue')
-        costElem.textContent = cost;
-        console.log(priceGoodArr)
-        priceGoodArr.pop()
-        console.log(priceGoodArr)
-        
-        let goodPrices = document.querySelectorAll('.cartGood__priceValue')
-        let totalCostArr = [];
-        goodPrices.forEach(item => {
-          totalCostArr.push(Number(item.textContent));
-        });
-        console.log(totalCostArr)
-        let totalCostSum = totalCostArr.reduce((sum, item) => sum + item);
-        totalPrice.textContent =totalCostSum
+        priceGoodArr.pop();
         if (count < 1) {
+
           deleteGoodFromCart(e.target.closest('.cartGood__item'));
+        } else {
+          priceGood.textContent = culcTotalPrice();
+          totalCost.textContent = culcTotalCost();
+        };
+      });
+//delBtn
+      cartList.addEventListener('click', (e) => {
+        if (e.target.classList.contains('delBtn')) {
+          deleteGoodFromCart(e.target.closest('.cartGood__item'));
+          let goodPrices = document.querySelectorAll('.cartGood__priceValue')
+              let totalCostArr = [];
+              goodPrices.forEach(item => {
+                totalCostArr.push(Number(item.textContent));
+              });
+              console.log(totalCostArr)
+              if (printQuantity() > 0) {
+                totalCost.textContent = culcTotalCost()
+              } 
         }
-      })
-}
-    });
+      }
+      )
+};
+    });    
 });
-
-cartList.addEventListener('click', (e) => {
-  if (e.target.classList.contains('delBtn')) {
-    deleteGoodFromCart(e.target.closest('.cartGood__item'));
-    let goodPrices = document.querySelectorAll('.cartGood__priceValue')
-        let totalCostArr = [];
-        goodPrices.forEach(item => {
-          totalCostArr.push(Number(item.textContent));
-        });
-        console.log(totalCostArr)
-        if (printQuantity() > 0) {
-          // let totalCostSum = totalCostArr.reduce((sum, item) => sum + item);
-          // console.log(totalCostSum);
-          let totalCostSum = totalCostArr.reduce((sum, item) => sum + item);
-          totalPrice.textContent =totalCostSum
-        } 
-  }
-}
-)
-
 //swiper
 var swiper = new Swiper(".mySwiper", {
   spaceBetween: 30,

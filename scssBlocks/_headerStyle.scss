@@ -4,15 +4,23 @@
     position: fixed;
     width: 100%;
     z-index: 20;
+    display: none;
+    @media (min-width: $tabletWidth) {
+        bottom: auto;
+        
+    }
 }
 .headerWrap{
-    position: relative;
 }
 .headerNav{
     padding: 25px 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    @media (min-width: $tabletWidth) {
+        gap: 25px;
+       }
+
     &__img{
         background: inherit;
     }
@@ -22,13 +30,14 @@
         gap: 25px;
     }
     &__center{
-        background: inherit;
+       position: relative;
+       @media (min-width: $tabletWidth) {
+        flex-grow: 1;
+        display: flex;
+        justify-content: end;
+       }
     }
-    &__center img{
-        width: 40px;
-        height: 40px;
-        background: inherit;
-    }
+
     &__right{
         position: relative;
         display: flex;
@@ -39,6 +48,9 @@
 .headerIcon{
     cursor: pointer;
     fill: rgb(143, 141, 141);
+    &__cart{
+        position: relative;
+    }
 }
 // burgerMenu
 .burger{
@@ -47,6 +59,7 @@
     &__active{
         position: fixed;
         right: 0;
+        top: 25px;
         @media (min-width: $desktopWidth) {
 
         }
@@ -88,6 +101,11 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
+    &__link{
+        text-decoration: none;
+        @include smallText;
+        color: black;
+    }
     @media (min-width: $tabletWidth) {
         width: 30%;
     }
@@ -120,14 +138,18 @@
         justify-content: center;
         position: absolute;
         color: #FFFFFF;
-        left: 25px;
         top: 10%;
         transform: translateY(-50%);
         background-color: $mainColor;
         border-radius: 100%;
-        padding: 2px;
+        padding: 3px;
         min-width: 16px;
         min-height: 16px;
+        left: 25px;
+        @media (min-width: $tabletWidth) {
+            left: auto;
+            right: -10px;
+           }
     }
 }
 .cartList{

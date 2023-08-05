@@ -61,10 +61,12 @@ ul {
   position: fixed;
   width: 100%;
   z-index: 20;
+  display: none;
 }
-
-.headerWrap {
-  position: relative;
+@media (min-width: 768px) {
+  .header {
+    bottom: auto;
+  }
 }
 
 .headerNav {
@@ -72,6 +74,11 @@ ul {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+@media (min-width: 768px) {
+  .headerNav {
+    gap: 25px;
+  }
 }
 .headerNav__img {
   background: inherit;
@@ -82,12 +89,14 @@ ul {
   gap: 25px;
 }
 .headerNav__center {
-  background: inherit;
+  position: relative;
 }
-.headerNav__center img {
-  width: 40px;
-  height: 40px;
-  background: inherit;
+@media (min-width: 768px) {
+  .headerNav__center {
+    flex-grow: 1;
+    display: flex;
+    justify-content: end;
+  }
 }
 .headerNav__right {
   position: relative;
@@ -100,6 +109,9 @@ ul {
   cursor: pointer;
   fill: rgb(143, 141, 141);
 }
+.headerIcon__cart {
+  position: relative;
+}
 
 .burger {
   z-index: 20;
@@ -108,6 +120,7 @@ ul {
 .burger__active {
   position: fixed;
   right: 0;
+  top: 25px;
 }
 .burger__active :nth-child(1) {
   display: none;
@@ -147,6 +160,13 @@ ul {
   flex-direction: column;
   gap: 10px;
 }
+.burgerList__link {
+  text-decoration: none;
+  font-family: Comic Sans MS, Comic Sans, cursive;
+  font-size: 15px;
+  margin: 15px 0;
+  color: black;
+}
 @media (min-width: 768px) {
   .burgerList {
     width: 30%;
@@ -177,14 +197,20 @@ ul {
   justify-content: center;
   position: absolute;
   color: #FFFFFF;
-  left: 25px;
   top: 10%;
   transform: translateY(-50%);
   background-color: #f7d621;
   border-radius: 100%;
-  padding: 2px;
+  padding: 3px;
   min-width: 16px;
   min-height: 16px;
+  left: 25px;
+}
+@media (min-width: 768px) {
+  .cart__quantity {
+    left: auto;
+    right: -10px;
+  }
 }
 
 .cartList {
@@ -424,7 +450,7 @@ ul {
 
 .catalogWrap {
   text-align: center;
-  padding-bottom: 50px;
+  padding-bottom: 30px;
 }
 
 .catalog__heading {
@@ -452,6 +478,9 @@ ul {
   text-align: left;
   background-color: #F8F8F8;
 }
+.catalogGood:nth-child(n+5) {
+  display: none;
+}
 .catalogGood__img {
   width: 100%;
 }
@@ -460,7 +489,7 @@ ul {
   font-family: Comic Sans MS, Comic Sans, cursive;
   font-size: 20px;
 }
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .catalogGood__title {
     min-height: 40px;
   }
@@ -476,6 +505,10 @@ ul {
 .catalogGood__btn:disabled {
   opacity: 0.4;
   pointer-events: none;
+}
+
+.catalogGood.isVisible {
+  display: block;
 }
 
 .catalogGoodInfo {
@@ -619,6 +652,12 @@ ul {
 
 .footer {
   background-color: #222222;
+  height: 200px;
+}
+@media (min-width: 768px) {
+  .footer {
+    height: auto;
+  }
 }
 
 .footerWrap {

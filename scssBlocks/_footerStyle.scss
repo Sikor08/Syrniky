@@ -1,5 +1,9 @@
 .footer{
     background-color: $paleBlackFon;
+    height: 200px;
+    @media (min-width:$tabletWidth) {
+        height: auto
+         }
 }
 .footerWrap{
     padding: 30px 0;

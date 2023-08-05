@@ -5,7 +5,41 @@ burgerBtn.addEventListener('click', (e) => {
     burgerBtn.classList.toggle('burger__active');
     burgerMenuList.classList.toggle('burgerList__open');
 });
+const burgerListLink = document.querySelectorAll('.burgerList__link');
+const burger = document.querySelector('.burger')
+burgerListLink.forEach(item => {
+  item.addEventListener('click', () => {
+    burgerMenuList.classList.remove('burgerList__open')
+    burger.classList.remove('burger__active')
+  })
+})
+//header
+const header = document.querySelector('.header');
+window.document.addEventListener('scroll', () => {
+  header.classList.remove('displayNone');
+  header.style.display = 'block'
+})
 
+
+//showMore
+const showMore = document.querySelector('.showMore');
+const goodsLength = document.querySelectorAll('.catalogGood').length;
+let visibleGoodsQuantity = 4;
+
+showMore.addEventListener('click', () => {
+  visibleGoodsQuantity += 2;
+  const arr = Array.from(document.querySelector('.catalogGoodsWrapper').children);
+  const visibleGoods = arr.slice(0, visibleGoodsQuantity);
+
+  visibleGoods.forEach(good => {
+    good.classList.add('isVisible')
+  })
+  if (visibleGoods.length === goodsLength) {
+    showMore.style.display = 'none'
+
+  }
+})
+console.log(goodsLength)
 // cart
 const catalogGoodBtn = document.querySelectorAll('.catalogGood__btn');
 const cartList = document.querySelector('.cartList');

@@ -3,7 +3,10 @@
 }
 .buyNowList{
     display: grid;
-    grid-template-columns: (repeat(2, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    // @media (min-width: $tabletWidth) {
+    //     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    // }
     gap: 5px;
 }
 .buyNowWrap{
@@ -14,19 +17,17 @@
 .buyNowGood{
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     position: relative;
-    max-width: 200px;
-    @media (min-width: $tabletWidth) {
-        max-width: 250px;
-    }
-    @media (min-width: $desktopWidth) {
-        max-width: 350px;
-    }
+    // max-width: 200px;
+    // @media (min-width: $tabletWidth) {
+    //     max-width: 250px;
+    // }
+    // @media (min-width: $desktopWidth) {
+    //     max-width: 350px;
+    // }
     &__heading{
         @include h2;
     }
     &__title{
-        bottom: 20px;
-        min-height: 50px;
         @include title
     }
     &__img{

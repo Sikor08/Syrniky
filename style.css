@@ -70,7 +70,7 @@ ul {
 }
 
 .headerNav {
-  padding: 25px 0;
+  padding: 15px 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -164,7 +164,6 @@ ul {
   text-decoration: none;
   font-family: Comic Sans MS, Comic Sans, cursive;
   font-size: 15px;
-  margin: 15px 0;
   color: black;
 }
 @media (min-width: 768px) {
@@ -241,7 +240,6 @@ ul {
 .cartGood__text {
   font-family: Comic Sans MS, Comic Sans, cursive;
   font-size: 15px;
-  margin: 15px 0;
   margin: 0;
 }
 @media (min-width: 768px) {
@@ -252,7 +250,6 @@ ul {
 .cartGood__price {
   font-family: Comic Sans MS, Comic Sans, cursive;
   font-size: 15px;
-  margin: 15px 0;
 }
 
 .totalPrice {
@@ -393,7 +390,7 @@ ul {
 
 .buyNowList {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
   gap: 5px;
 }
 
@@ -406,17 +403,6 @@ ul {
 .buyNowGood {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   position: relative;
-  max-width: 200px;
-}
-@media (min-width: 768px) {
-  .buyNowGood {
-    max-width: 250px;
-  }
-}
-@media (min-width: 1024px) {
-  .buyNowGood {
-    max-width: 350px;
-  }
 }
 .buyNowGood__heading {
   font-family: Comic Sans MS, Comic Sans, cursive;
@@ -426,10 +412,8 @@ ul {
   letter-spacing: 0em;
 }
 .buyNowGood__title {
-  bottom: 20px;
-  min-height: 50px;
   font-family: Comic Sans MS, Comic Sans, cursive;
-  font-size: 20px;
+  font-size: 15px;
 }
 .buyNowGood__img {
   width: 100%;
@@ -444,13 +428,13 @@ ul {
   top: 10px;
   left: 45%;
   font-family: Comic Sans MS, Comic Sans, cursive;
-  font-size: 20px;
+  font-size: 15px;
   color: #f7d621;
 }
 
 .catalogWrap {
   text-align: center;
-  padding-bottom: 30px;
+  padding-bottom: 70px;
 }
 
 .catalog__heading {
@@ -485,9 +469,9 @@ ul {
   width: 100%;
 }
 .catalogGood__title {
-  min-height: 70px;
+  min-height: 40px;
   font-family: Comic Sans MS, Comic Sans, cursive;
-  font-size: 20px;
+  font-size: 15px;
 }
 @media (min-width: 1024px) {
   .catalogGood__title {
@@ -497,7 +481,12 @@ ul {
 .catalogGood__text {
   font-family: Comic Sans MS, Comic Sans, cursive;
   font-size: 15px;
-  margin: 15px 0;
+}
+.catalogGood__oldPrice {
+  font-family: Comic Sans MS, Comic Sans, cursive;
+  font-size: 15px;
+  text-decoration: line-through;
+  text-decoration-color: red;
 }
 .catalogGood__price {
   font-family: Comic Sans MS, Comic Sans, cursive;
@@ -619,7 +608,6 @@ ul {
 .review__text {
   font-family: Comic Sans MS, Comic Sans, cursive;
   font-size: 15px;
-  margin: 15px 0;
 }
 
 .subscribe {
@@ -629,13 +617,12 @@ ul {
 }
 .subscribe__title {
   font-family: Comic Sans MS, Comic Sans, cursive;
-  font-size: 20px;
+  font-size: 15px;
   margin-bottom: 15px;
 }
 .subscribe__text {
   font-family: Comic Sans MS, Comic Sans, cursive;
   font-size: 15px;
-  margin: 15px 0;
   margin-bottom: 10px;
 }
 

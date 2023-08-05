@@ -1,6 +1,6 @@
 .catalogWrap{
     text-align: center;
-    padding-bottom: 30px;
+    padding-bottom: 70px;
 }
 .catalog{
     &__heading{
@@ -33,7 +33,7 @@
     }
 
     &__title{        
-        min-height: 70px;
+        min-height: 40px;
           @media (min-width: $desktopWidth) {
             min-height: 40px;
             }
@@ -41,6 +41,11 @@
     }
     &__text{
         @include smallText
+    }
+    &__oldPrice{
+        @include smallText;
+        text-decoration: line-through;
+        text-decoration-color: red;
     }
     &__price{
         font-family: Comic Sans MS, Comic Sans, cursive;

@@ -27,7 +27,7 @@ const goodsLength = document.querySelectorAll('.catalogGood').length;
 let visibleGoodsQuantity = 4;
 
 showMore.addEventListener('click', () => {
-  visibleGoodsQuantity += 2;
+  visibleGoodsQuantity += 4;
   const arr = Array.from(document.querySelector('.catalogGoodsWrapper').children);
   const visibleGoods = arr.slice(0, visibleGoodsQuantity);
 
@@ -212,3 +212,5 @@ var swiper = new Swiper(".mySwiper", {
     clickable: true,
   },
 });
+
+

@@ -1,20 +1,22 @@
 .footer{
     background-color: $paleBlackFon;
-    height: 200px;
     @media (min-width:$tabletWidth) {
         height: auto
          }
+}
+.footerHeading{
+    @include h2;
+    color: $mainColor;
+    text-transform: uppercase;
 }
 .footerWrap{
     padding: 30px 0;
     display: flex;
     flex-direction: column;
     align-items: center;
-    @media (min-width: $tabletWidth) {
-        flex-direction: inherit;
-        justify-content: space-around;
-    }
+
 }
+
 .socials{
     display: flex;
     gap: 15px;
@@ -25,4 +27,33 @@
 }
 .allRights{
     color: aliceblue;
+}
+.contacts{
+    &__text{
+        padding: 0 10px;
+        color: #f1f1f1;
+    }
+}
+.socialsHeading{
+    @include title;
+    margin-bottom: 20px;
+    color: #f1f1f1;
+
+}
+.contactsList{
+    display: grid;
+    gap: 5px;
+    margin-bottom: 40px;
+
+}
+.contactsInfo{
+    display: flex;
+    @include smallText;
+    a{
+        color: $mainColor;
+    }
+}
+.socialsList{
+    display: flex;
+    gap: 10px;
 }

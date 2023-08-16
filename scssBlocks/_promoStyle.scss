@@ -6,12 +6,14 @@
 
 }
 .promoWrap{
-    height: 363px;
+    height: 210px;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: end;
     @media (min-width: $tabletWidth) {
+        height: 300px;
         justify-content: space-between;
+        align-items: center;;
     }
     @media (min-width: $desktopWidth) {
         height: 564px;
